@@ -1,0 +1,42 @@
+<div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+    <!-- start: LOGIN BOX -->
+    <div class="box-login" style="height:480px;width:106%;padding-left:50px;padding-right:40px;">
+        <form class="form-login">
+            <h3 class="heading" align="center">Log in to your account</h3>
+            <h6 class="credential-intro">
+                Please enter your username and password to log in.
+            </h6>
+            <div [hidden]="!error" class = "alert alert-danger login-danger">{{ error }} <a [routerLink]="['/forgotpassword']">Forgot password?</a></div>
+            <div class="form-group">
+                <span class="input-icon">
+                    <input  [(ngModel)]="credentials.username" name="username" type="text" class="form-control text-ht" autofocus placeholder="Username">
+                </span>
+            </div>
+            <div class="form-group form-actions">
+                <span class="input-icon" style="top:-10px;">
+                        <input  [(ngModel)]="credentials.password" type="password" name="password" class="form-control password text-ht" name="password" placeholder="Password">
+
+                </span>
+
+            </div>
+            <div class="form-group form-actions">
+                <a [routerLink]="['/forgotpassword']" class="forgot login">
+                    Forgot Password?
+                </a>
+            </div>
+
+                <div class="form-actions" style="height:80px;">
+                    <button  (click)="login(credentials)" class="btn btn-primary login_property">
+                        <span [hidden]="login_response">
+                            Login
+                        </span>
+                        <span [hidden]="!login_response">
+                            <i  class="fa fa-spinner fa-spin" style="font-size:28px;"></i>
+                        </span>
+
+                    </button>
+                </div>
+        </form>
+    </div>
+    <!-- end: LOGIN BOX -->
+</div>
