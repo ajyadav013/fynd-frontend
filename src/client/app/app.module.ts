@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { APP_BASE_HREF } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { CookieModule } from 'ngx-cookie';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { AboutModule } from './about/about.module';
 import { HomeModule } from './home/home.module';
+import { MoviesModule } from './movies/movies.module';
 import { SocialModule } from './social/social.module';
 import { SharedModule } from './shared/shared.module';
 
@@ -15,11 +17,13 @@ import { routes } from './app.routes';
 
 @NgModule({
     imports: [BrowserModule, HttpModule,
+              FormsModule,
               CookieModule.forRoot(),
               RouterModule.forRoot(routes),
               SharedModule.forRoot(),
               SocialModule.forRoot(),
               HomeModule.forRoot(),
+              MoviesModule.forRoot(),
               AuthModule, AboutModule],
     declarations: [AppComponent],
     providers: [{

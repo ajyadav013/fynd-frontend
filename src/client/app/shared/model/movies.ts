@@ -3,5 +3,5 @@ export class IMovies {
     name: string;
     popularity: number;
     director: string;
-    genre: Array<string>;
+    genres: Array<string>;
 }

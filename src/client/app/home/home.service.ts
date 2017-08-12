@@ -15,29 +15,4 @@ export class SocialResolver implements Resolve<any> {
     resolve() {
         return this.socialService.socialResolve();
     }
-
-}
-
-@Injectable()
-export class HomeService {
-    constructor(private _contentHeaderService:ContentHeaderService, private _http:Http) { }
-
-    public getMovies():Observable<any> {
-        let options = this._contentHeaderService.getOptions(null);
-        return this._http.get(Config.APIURL+'movies/', options)
-            .map((res:Response) => this.handleMoviesResponse(res))
-            .catch(this.handleMovieError);
-    }
-
-    public handleMoviesResponse(response:any) {
-        console.log('Movie response', response);
-        return response.json();
-    }
-
-
-    public handleMovieError(error:any) {
-        console.log('Movie Error', error);
-        return Observable.of(false);
-    }
-
 }

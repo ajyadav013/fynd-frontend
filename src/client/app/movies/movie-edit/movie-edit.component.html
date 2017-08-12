@@ -1,0 +1,18 @@
+ <div *ngIf="showTemplate" class="form-group">
+     <label style="font-size:16px">Name</label>
+     <input [(ngModel)]="movie.name"  name="moviename" type="text">
+     <br>
+     <label style="font-size:16px">99Popularity</label>
+     <input [(ngModel)]="movie.popularity"  name="moviename" type="text">
+     <br>
+     <label style="font-size:16px">Director</label>
+     <input [(ngModel)]="movie.director"  name="moviename" type="text">
+     <br>
+     <label style="font-size:16px">Imdb Rating</label>
+     <input [(ngModel)]="movie.imdbScore"  name="moviename" type="text">
+     <br>
+     <label style="font-size:16px">Genres</label>
+     <select multiple [(ngModel)]="selectedGenres">
+         <option *ngFor="let genre of genres" [ngValue]="genre">{{genre.name}}</option>
+     </select>
+ </div>

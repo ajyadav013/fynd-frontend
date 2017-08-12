@@ -1,0 +1,28 @@
+<button  id="logout-button" class="btn btn-warning">Add Movie</button>
+<div *ngIf="movies && movies.length!==0">
+    <table  class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Director</th>
+                <th>99Popularity</th>
+                <th>Imdb Score</th>
+                <th>Genre</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let movie of movies">
+                <td>{{movie.id}}</td>
+                <td>{{ movie.name }}</td>
+                <td>{{ movie.director }}</td>
+                <td>{{ movie.popularity }}</td>
+                <td>{{ movie.imdbScore }}</td>
+                <td *ngFor="let genre of movie.genres">{{genre.name}}</td>
+                <td> <a style="font-size:20px"  [routerLink]="['movie/edit/'+ movie.id]"><i class="ti-pencil"></i></a></td>
+                <td><a style="font-size:20px"><i class="ti-trash"></i></a></td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
