@@ -1,4 +1,3 @@
-<button  id="logout-button" class="btn btn-warning">Add Movie</button>
 <div *ngIf="movies && movies.length!==0">
     <table  class="table table-hover">
         <thead>
@@ -20,7 +19,7 @@
                 <td>{{ movie.imdbScore }}</td>
                 <td *ngFor="let genre of movie.genres">{{genre.name}}</td>
                 <td> <a style="font-size:20px"  [routerLink]="['movie/edit/'+ movie.id]"><i class="ti-pencil"></i></a></td>
-                <td><a style="font-size:20px"><i class="ti-trash"></i></a></td>
+                <td><a (click)="deleteMovie(movie.id)" style="font-size:20px"><i class="ti-trash"></i></a></td>
 
             </tr>
         </tbody>

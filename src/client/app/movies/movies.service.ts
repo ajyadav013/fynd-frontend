@@ -31,6 +31,27 @@ export class MoviesService {
             .catch(this.handleMovieError);
     }
 
+    public addMovie(movie:IMovies):Observable<any> {
+        let options = this._contentHeaderService.getOptions(null);
+        return this._http.post(Config.APIURL+'movies/', movie, options)
+            .map((res:Response) => this.handleAddMovieResponse(res))
+            .catch(this.handleMovieError);
+    }
+
+    public deleteMovie(movieId:string):Observable<any> {
+        let options = this._contentHeaderService.getOptions(null);
+        return this._http.delete(Config.APIURL+'movies/'+movieId+'/', options)
+            .map((res:Response) => this.handleDeleteMovieResponse(res))
+            .catch(this.handleMovieError);
+    }
+
+    public handleDeleteMovieResponse(response:any) {
+        return Observable.of(true)
+    }
+
+    public handleAddMovieResponse(response:any) {
+        return response.json();
+    }
 
     public handleGenresResponse(response:any) {
         return response.json();
