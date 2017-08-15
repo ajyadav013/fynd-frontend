@@ -45,7 +45,7 @@ export class MovieEditComponent implements OnInit {
     }
 
 
-    editMovie(movie:IMovies, selectedGenres:any) {
+    editMovie(movie:IMovies) {
         this._moviesService.editMovie(movie)
             .subscribe(
                 response => this.editMovieResponse(response),

@@ -11,8 +11,6 @@ export class ProjectConfig extends SeedConfig {
 
     PROJECT_TASKS_DIR = join(process.cwd(), this.TOOLS_DIR, 'tasks', 'project');
     FONTS_DEST = `${this.APP_DEST}/fonts`;
-    CSS_FONTS_DEST = `${this.APP_DEST}/css/fonts`;
-    CSS_FONTS_SRC: any = [];
     FONTS_SRC:string[] = [];
     constructor() {
         super();
@@ -20,9 +18,6 @@ export class ProjectConfig extends SeedConfig {
             'node_modules/bootstrap/dist/fonts/**',
             'node_modules/font-awesome/fonts/**',
             'node_modules/cd-themify-icons/fonts/**',
-        ];
-        this.CSS_FONTS_SRC = [
-            'node_modules/cd-themify-icons/fonts/**'
         ];
         this.APP_TITLE = 'Fynd Task';
         // this.GOOGLE_ANALYTICS_ID = 'Your site's ID';
