@@ -16,7 +16,6 @@ import 'rxjs/add/operator/startWith';
   moduleId: module.id,
   selector: 'sd-movies',
   templateUrl: 'movies.component.html',
-  //styleUrls: ['movies.component.css'],
 })
 export class MoviesComponent implements OnInit {
 
