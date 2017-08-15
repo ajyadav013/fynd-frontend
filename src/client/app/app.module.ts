@@ -5,9 +5,9 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CookieModule } from 'ngx-cookie';
+import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
-import { AboutModule } from './about/about.module';
 import { HomeModule } from './home/home.module';
 import { MoviesModule } from './movies/movies.module';
 import { SocialModule } from './social/social.module';
@@ -20,11 +20,12 @@ import { routes } from './app.routes';
               FormsModule,
               CookieModule.forRoot(),
               RouterModule.forRoot(routes),
+              MaterialModule,
               SharedModule.forRoot(),
               SocialModule.forRoot(),
               HomeModule.forRoot(),
               MoviesModule.forRoot(),
-              AuthModule, AboutModule],
+              AuthModule],
     declarations: [AppComponent],
     providers: [{
         provide: APP_BASE_HREF,

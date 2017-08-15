@@ -9,7 +9,7 @@ import { Config } from '../shared/config/env.config';
     templateUrl: 'social.component.html',
     styleUrls: ['social.component.css'],
 })
-export class SocialComponent implements OnChanges{
+export class SocialComponent implements OnChanges {
     @Input('loggedInPlatforms') loggedInPlatforms:Array<string>;
 
     public facebookLoggedIn:boolean=false;

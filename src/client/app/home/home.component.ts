@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IMovies } from '../shared/model/index'
+import { IMovies } from '../shared/model/index';
 
 /**
  * This class represents the lazy loaded HomeComponent.
@@ -11,7 +11,7 @@ import { IMovies } from '../shared/model/index'
   templateUrl: 'home.component.html',
   styleUrls: ['home.component.css'],
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
 
     public loggedInPlatforms:Array<string> = [];
     constructor(private _route:ActivatedRoute) {}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute }   from '@angular/router';
+import { ActivatedRoute, Router }   from '@angular/router';
 import { IMovies, IGenres } from '../../shared/model/index';
 import { MoviesService } from '../movies.service';
 
@@ -12,11 +12,13 @@ import { MoviesService } from '../movies.service';
 })
 export class MovieEditComponent implements OnInit {
 
-    private movie:IMovies = new IMovies();
-    private selectedGenres:Array<string> = [];
-    private genres:IGenres = new IGenres();
+    public movie:IMovies = new IMovies();
+    public genres:IGenres = new IGenres();
+    public finalGenre:IGenres = new IGenres();
+    public selectedGenres:Array<string> = [];
     public showTemplate:boolean = false;
-    constructor(private _moviesService:MoviesService, private _route: ActivatedRoute) {}
+    public error:boolean = false;
+    constructor(private _moviesService:MoviesService, private _route: ActivatedRoute, private _router:Router) {}
 
     ngOnInit() {
         let _params:any = this._route.params;
@@ -33,25 +35,48 @@ export class MovieEditComponent implements OnInit {
 
     }
 
+    prePopulateGenre(genre:IGenres) {
+        for(let i=0; i<this.selectedGenres.length; i++) {
+            if(genre.name===this.selectedGenres[i]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    editMovie(movie:IMovies, selectedGenres:any) {
+        this._moviesService.editMovie(movie)
+            .subscribe(
+                response => this.editMovieResponse(response),
+                err => this.logError(err)
+            );
+    }
+
+
+    editMovieResponse(response:any) {
+        if(response===false) {
+            this.error = true;
+        } else {
+            this._router.navigate(['/']);
+        }
+    }
+
     extractGenres(genres:any) {
         this.genres = genres;
-        console.log('genres', genres);
         this.showTemplate = true;
 
     }
 
-    extractMovie(movie:IMovies) {
+    extractMovie(movie:any) {
         this.movie = movie;
-        console.log(this.movie)
         for(let i=0; i<this.movie.genres.length; i++) {
-            this.selectedGenres[i] = movie.genres[i].name
+            this.selectedGenres[i] = movie.genres[i].name;
         }
-
-        console.log('got movie genres', this.selectedGenres);
     }
 
     logError(err:any) {
-        console.log('goy error', err);
+        console.log('error', err);
     }
 
 

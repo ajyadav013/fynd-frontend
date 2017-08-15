@@ -12,9 +12,9 @@ import { MoviesService } from '../movies.service';
 })
 export class MovieAddComponent implements OnInit {
 
-    private movie:IMovies = new IMovies();
-    private selectedGenres:Array<string> = [];
-    private genres:IGenres = new IGenres();
+    public movie:IMovies = new IMovies();
+    public selectedGenres:Array<string> = [];
+    public genres:IGenres = new IGenres();
     public showTemplate:boolean = false;
     constructor(private _moviesService:MoviesService, private _route: ActivatedRoute, private _router:Router) {}
 
@@ -36,9 +36,9 @@ export class MovieAddComponent implements OnInit {
 
     addMovie(movie:IMovies, genres:any) {
 
-        movie.genres = []
+        movie.genres = [];
         for (let i=0; i<genres.length; i++) {
-            movie.genres.push(genres[i])
+            movie.genres.push(genres[i]);
         }
         this._moviesService.addMovie(movie)
             .subscribe(
@@ -54,7 +54,7 @@ export class MovieAddComponent implements OnInit {
 
 
     logError(err:any) {
-        console.log('goy error', err);
+        console.log('error', err);
     }
 
 

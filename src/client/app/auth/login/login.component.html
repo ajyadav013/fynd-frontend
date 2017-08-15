@@ -6,7 +6,7 @@
             <h6 class="credential-intro">
                 Please enter your username and password to log in.
             </h6>
-            <div [hidden]="!error" class = "alert alert-danger login-danger">{{ error }} <a [routerLink]="['/forgotpassword']">Forgot password?</a></div>
+
             <div class="form-group">
                 <span class="input-icon">
                     <input  [(ngModel)]="credentials.username" name="username" type="text" class="form-control text-ht" autofocus placeholder="Username">
@@ -14,28 +14,22 @@
             </div>
             <div class="form-group form-actions">
                 <span class="input-icon" style="top:-10px;">
-                        <input  [(ngModel)]="credentials.password" type="password" name="password" class="form-control password text-ht" name="password" placeholder="Password">
+                    <input  [(ngModel)]="credentials.password" type="password" name="password" class="form-control password text-ht" name="password" placeholder="Password">
 
                 </span>
 
             </div>
-            <div class="form-group form-actions">
-                <a [routerLink]="['/forgotpassword']" class="forgot login">
-                    Forgot Password?
-                </a>
+            <div class="form-actions" style="height:80px;">
+                <button  (click)="login(credentials)" class="btn btn-primary login_property">
+                    <span [hidden]="login_response">
+                        Login
+                    </span>
+                    <span [hidden]="!login_response">
+                        <i  class="fa fa-spinner fa-spin" style="font-size:28px;"></i>
+                    </span>
+
+                </button>
             </div>
-
-                <div class="form-actions" style="height:80px;">
-                    <button  (click)="login(credentials)" class="btn btn-primary login_property">
-                        <span [hidden]="login_response">
-                            Login
-                        </span>
-                        <span [hidden]="!login_response">
-                            <i  class="fa fa-spinner fa-spin" style="font-size:28px;"></i>
-                        </span>
-
-                    </button>
-                </div>
         </form>
     </div>
     <!-- end: LOGIN BOX -->

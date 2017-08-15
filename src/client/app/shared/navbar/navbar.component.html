@@ -1,6 +1,5 @@
 <nav>
   <a [routerLink]="['/']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">HOME</a>
-  <!-- <a [routerLink]="['/about']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">ABOUT</a> -->
-  <a [routerLink]="['/movie/add']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">Add Movie</a>
+  <a *ngIf="user.is_superuser" [routerLink]="['/movie/add']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">Add Movie</a>
   <a><social-app [loggedInPlatforms]="loggedInPlatforms" ></social-app></a>
 </nav>

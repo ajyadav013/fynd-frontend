@@ -1,3 +1,21 @@
+<md-card>
+    <div>Result <div *ngIf="_user.is_superuser"><a style="font-size:20px"  [routerLink]="['movie/edit/'+ movieCtrl?.value.id]"><i class="ti-pencil"></i></a>  <a (click)="deleteMovie(movieCtrl.value.id)" style="font-size:20px"><i class="ti-trash"></i></a></div></div>
+    <div>Name: {{ movieCtrl?.value.name }}</div>
+    <div>Director: {{ movieCtrl?.value.director }}</div>
+    <div>99Popularity: {{ movieCtrl?.value.popularity }}</div>
+    <div>Imdb Score: {{ movieCtrl?.value.imdbScore }}</div>
+    <div>Genres: <div *ngFor="let genre of movieCtrl?.value.genres">{{ genre.name }}</div></div>
+
+    <md-input-container floatPlaceholder="never">
+        <input mdInput placeholder="State" [mdAutocomplete]="reactiveAuto" [formControl]="movieCtrl">
+    </md-input-container>
+</md-card>
+<md-autocomplete #reactiveAuto="mdAutocomplete" [displayWith]="displayFn">
+  <md-option *ngFor="let movie of reactiveMovies | async" [value]="movie">
+    <span>{{ movie.name }}</span>
+    <span class="demo-secondary-text"> ({{ movie.popularity }}) </span>
+  </md-option>
+</md-autocomplete>
 <div *ngIf="movies && movies.length!==0">
     <table  class="table table-hover">
         <thead>
@@ -12,14 +30,16 @@
         </thead>
         <tbody>
             <tr *ngFor="let movie of movies">
-                <td>{{movie.id}}</td>
+                <td>{{ movie.id }}</td>
                 <td>{{ movie.name }}</td>
                 <td>{{ movie.director }}</td>
                 <td>{{ movie.popularity }}</td>
                 <td>{{ movie.imdbScore }}</td>
-                <td *ngFor="let genre of movie.genres">{{genre.name}}</td>
-                <td> <a style="font-size:20px"  [routerLink]="['movie/edit/'+ movie.id]"><i class="ti-pencil"></i></a></td>
+                <td *ngFor="let genre of movie.genres">{{ genre.name }}</td>
+                <div *ngIf="_user.is_superuser">
+                <td > <a style="font-size:20px"  [routerLink]="['movie/edit/'+ movie.id]"><i class="ti-pencil"></i></a></td>
                 <td><a (click)="deleteMovie(movie.id)" style="font-size:20px"><i class="ti-trash"></i></a></td>
+                </div>
 
             </tr>
         </tbody>

@@ -38,6 +38,14 @@ export class MoviesService {
             .catch(this.handleMovieError);
     }
 
+    public editMovie(movie:IMovies):Observable<any> {
+        let options = this._contentHeaderService.getOptions(null);
+        return this._http.put(Config.APIURL+'movies/'+movie.id+'/', movie, options)
+            .map((res:Response) => this.handleEditMovieResponse(res))
+            .catch(this.handleMovieError);
+    }
+
+
     public deleteMovie(movieId:string):Observable<any> {
         let options = this._contentHeaderService.getOptions(null);
         return this._http.delete(Config.APIURL+'movies/'+movieId+'/', options)
@@ -45,8 +53,13 @@ export class MoviesService {
             .catch(this.handleMovieError);
     }
 
+
+    public handleEditMovieResponse(response:any) {
+        return response.json();
+    }
+
     public handleDeleteMovieResponse(response:any) {
-        return Observable.of(true)
+        return Observable.of(true);
     }
 
     public handleAddMovieResponse(response:any) {

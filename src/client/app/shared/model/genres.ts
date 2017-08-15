@@ -1,4 +1,4 @@
 export class IGenres {
-    id?:(string | number);
-    name: string;
+    public id?:(string | number);
+    public name: string;
 }

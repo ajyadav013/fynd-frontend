@@ -21,7 +21,12 @@ export class SocialService {
     public getUserSocialDetails(code:string):Observable<any> {
         let config = JSON.parse(localStorage.getItem('socialAuthConfig'));
         let socialProvider = localStorage.getItem('socialProvider');
-        let body = {'code' : code,'clientId' : config[socialProvider].clientId,'redirectUri':config[socialProvider].redirectURI, 'provider':config[socialProvider].provider};
+        let body = {
+            'code' : code,
+            'clientId' : config[socialProvider].clientId,
+            'redirectUri':config[socialProvider].redirectURI,
+            'provider':config[socialProvider].provider
+        };
         let options = this._contentHeaderService.getOptions(null);
         return this._http.post(Config.APIURL+'social/', body, options)
             .map((res: Response) => this.handleGetUserSocialDetails(res))
@@ -44,7 +49,7 @@ export class SocialService {
         let loggedInPlatforms:Array<string> = [];
         let data = response.json();
         for(let i=0; i<data.length; i++) {
-            loggedInPlatforms.push(data[i].social_platform)
+            loggedInPlatforms.push(data[i].social_platform);
         }
         return loggedInPlatforms;
     }

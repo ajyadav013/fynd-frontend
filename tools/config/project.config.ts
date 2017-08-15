@@ -18,7 +18,7 @@ export class ProjectConfig extends SeedConfig {
             'node_modules/bootstrap/dist/fonts/**',
             'node_modules/font-awesome/fonts/**'
         ];
-        this.APP_TITLE = 'Angular4-Django Boilerplate';
+        this.APP_TITLE = 'Fynd Task';
         // this.GOOGLE_ANALYTICS_ID = 'Your site's ID';
 
         /* Enable typeless compiler runs (faster) between typed compiler runs. */
@@ -27,6 +27,8 @@ export class ProjectConfig extends SeedConfig {
         // Add `NPM` third-party libraries to be injected/bundled.
         this.NPM_DEPENDENCIES = [
                 ...this.NPM_DEPENDENCIES,
+            {src: '@angular/material/prebuilt-themes/deeppurple-amber.css', inject: true, vendor: false },
+            {src: 'hammerjs/hammer.min.js', inject: 'libs'},
             {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
             {src: 'bootstrap/dist/js/bootstrap.min.js', inject: 'libs'},
             {src: 'bootstrap/dist/css/bootstrap.min.css', inject: true},
@@ -59,14 +61,23 @@ export class ProjectConfig extends SeedConfig {
         ];
 
         // Add packages (e.g. ng2-translate)
-         let additionalPackages: ExtendPackages[] = [{
-             name: 'ngx-cookie',
-             // Path to the package's bundle
-             path: 'node_modules/ngx-cookie/bundles/ngx-cookie.umd.js'
+        let additionalPackages: ExtendPackages[] = [
+            {
+                name: 'ngx-cookie',
+                // Path to the package's bundle
+                path: 'node_modules/ngx-cookie/bundles/ngx-cookie.umd.js'
 
-         }];
+            },
+            // {
+            //     name:'@angular/material',
+            //     path:'node_modules/@angular/material/bundles/material.umd.js',
+            //     packageMeta:{
+            //         defaultExtension: 'js'
+            //     }
+            // }
+        ];
 
-         this.addPackagesBundles(additionalPackages);
+        this.addPackagesBundles(additionalPackages);
 
         /* Add proxy middleware */
         // this.PROXY_MIDDLEWARE = [

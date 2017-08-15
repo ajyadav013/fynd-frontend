@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { AuthGuard } from '../service/auth_guard/authguard.service';
+import { IUser } from '../model/index';
 
 /**
  * This class represents the navigation bar component.
@@ -10,14 +12,11 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['navbar.component.css'],
 })
 export class NavbarComponent {
-
+    public user:IUser;
     @Input('loggedInPlatforms')loggedInPlatforms:Array<string>;
 
-    constructor() {}
-
-    // ngOnChanges() {
-    //     console.log('logged in platforms in navbar onchanges', this.loggedInPlatforms);
-    // }
-
+    constructor(private _authGuard:AuthGuard) {
+        this.user = this._authGuard.user;
+    }
 
 }

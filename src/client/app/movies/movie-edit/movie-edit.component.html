@@ -1,4 +1,4 @@
- <div *ngIf="showTemplate" class="form-group">
+<div *ngIf="showTemplate" class="form-group">
      <label style="font-size:16px">Name</label>
      <input [(ngModel)]="movie.name"  name="moviename" type="text">
      <br>
@@ -12,7 +12,13 @@
      <input [(ngModel)]="movie.imdbScore"  name="moviename" type="text">
      <br>
      <label style="font-size:16px">Genres</label>
-     <select multiple [(ngModel)]="selectedGenres">
-         <option *ngFor="let genre of genres" [ngValue]="genre">{{genre.name}}</option>
-     </select>
+     <div *ngIf="genres">
+         <select multiple [(ngModel)]="movie.genres">
+             <option *ngFor="let genre of genres" [ngValue]="genre" [selected]="prePopulateGenre(genre)">{{ genre.name }}</option>
+         </select>
+     </div>
+     <br>
+     <button (click)="editMovie(movie)" class="btn btn-primary">Submit</button>
+
  </div>
+<div *ngIf="error"> Please enter all the data and do select the genres</div>

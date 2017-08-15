@@ -1,7 +1,7 @@
 export class IMovies {
-    id?:(string | number);
-    name: string;
-    popularity: number;
-    director: string;
-    genres: Array<string>;
+    public id?:(string | number);
+    public name: string;
+    public popularity: number;
+    public director: string;
+    public genres: Array<string>;
 }
