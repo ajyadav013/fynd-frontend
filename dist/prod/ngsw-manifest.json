@@ -1,15 +1,15 @@
 {
   "static": {
     "urls": {
-      "/index.html": "6dc603d59f226b64a5a78ef305cfd133de4a7dd6",
+      "/index.html": "d7279a7b399929eee3ddd5a07692fc66978dc247",
       "/worker-basic.min.js": "2f12848c352bd6baf25f0f1d995351696ef518ff",
       "/css/main.css": "35361e1751a5f58489fb623e5fe047995694720f",
       "/assets/data.json": "4442de734b100da8d244b35d34a355dee4dd9618",
+      "/js/app.js": "4a55c3d2673b3a74376debca6a21a05525bcdfff",
       "/js/shims.js": "c0976a89af161deffff0fbe7b40d016e4d3bb54b",
-      "/js/app.js": "2d746f74ea2e22973dc3e12ce348268b384f7c32",
-      "/assets/svg/more.svg": "9838cd822e0f989a0befbd365365ee2751bbdebc",
       "/assets/favicon/favicon-DEV.ico": "aa4fb0706ed367fb5c2fd6bd2b058c0dce8cc785",
-      "/assets/favicon/favicon-PROD.ico": "5d40a29d26398292f08a46b26f6788ec60f5f43e"
+      "/assets/favicon/favicon-PROD.ico": "5d40a29d26398292f08a46b26f6788ec60f5f43e",
+      "/assets/svg/more.svg": "9838cd822e0f989a0befbd365365ee2751bbdebc"
     }
   },
   "routing": {
