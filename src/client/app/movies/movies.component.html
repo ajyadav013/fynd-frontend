@@ -1,5 +1,5 @@
 <md-card>
-    <div>Result <div *ngIf="_user.is_superuser"><a style="font-size:20px"  [routerLink]="['movie/edit/'+ movieCtrl?.value.id]"><i class="ti-pencil"></i></a>  <a (click)="deleteMovie(movieCtrl.value.id)" style="font-size:20px"><i class="ti-trash"></i></a></div></div>
+    <div>Result <div *ngIf="_user.is_superuser"><a style="font-size:20px"  [routerLink]="['movie/edit/'+ movieCtrl?.value.id]"><i class="fa fa-pencil"></i></a>  <a (click)="deleteMovie(movieCtrl.value.id)" style="font-size:20px"><i class="fa fa-trash-o"></i></a></div></div>
     <div>Name: {{ movieCtrl?.value.name }}</div>
     <div>Director: {{ movieCtrl?.value.director }}</div>
     <div>99Popularity: {{ movieCtrl?.value.popularity }}</div>
@@ -37,8 +37,8 @@
                 <td>{{ movie.imdbScore }}</td>
                 <td *ngFor="let genre of movie.genres">{{ genre.name }}</td>
                 <div *ngIf="_user.is_superuser">
-                <td > <a style="font-size:20px"  [routerLink]="['movie/edit/'+ movie.id]"><i class="ti-pencil"></i></a></td>
-                <td><a (click)="deleteMovie(movie.id)" style="font-size:20px"><i class="ti-trash"></i></a></td>
+                <td > <a style="font-size:20px"  [routerLink]="['movie/edit/'+ movie.id]"><i class="fa fa-pencil"></i></a></td>
+                <td><a (click)="deleteMovie(movie.id)" style="font-size:20px"><i class="fa fa-trash-o"></i></a></td>
                 </div>
 
             </tr>
