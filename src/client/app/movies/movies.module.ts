@@ -4,13 +4,14 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
+import { SharedModule } from '../shared/shared.module';
 import { MoviesComponent } from './movies.component';
 import { MovieEditComponent } from './movie-edit/movie-edit.component';
 import { MovieAddComponent } from './movie-add/movie-add.component';
 import { MoviesService } from './movies.service';
 
 @NgModule({
-    imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, MaterialModule, BrowserAnimationsModule],
+    imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, MaterialModule, BrowserAnimationsModule, SharedModule],
     declarations: [MoviesComponent, MovieEditComponent, MovieAddComponent],
     exports: [MoviesComponent, MovieEditComponent, MovieAddComponent],
 })

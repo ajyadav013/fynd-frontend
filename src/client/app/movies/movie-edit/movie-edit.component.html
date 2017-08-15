@@ -1,24 +1,50 @@
-<div *ngIf="showTemplate" class="form-group">
-     <label style="font-size:16px">Name</label>
-     <input [(ngModel)]="movie.name"  name="moviename" type="text">
-     <br>
-     <label style="font-size:16px">99Popularity</label>
-     <input [(ngModel)]="movie.popularity"  name="moviename" type="text">
-     <br>
-     <label style="font-size:16px">Director</label>
-     <input [(ngModel)]="movie.director"  name="moviename" type="text">
-     <br>
-     <label style="font-size:16px">Imdb Rating</label>
-     <input [(ngModel)]="movie.imdbScore"  name="moviename" type="text">
-     <br>
-     <label style="font-size:16px">Genres</label>
-     <div *ngIf="genres">
-         <select multiple [(ngModel)]="movie.genres">
-             <option *ngFor="let genre of genres" [ngValue]="genre" [selected]="prePopulateGenre(genre)">{{ genre.name }}</option>
-         </select>
-     </div>
-     <br>
-     <button (click)="editMovie(movie)" class="btn btn-primary">Submit</button>
+<sd-toolbar></sd-toolbar>
+<div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+    <!-- start: LOGIN BOX -->
+    <div *ngIf="showTemplate" class="box-login" style="height:650px;width:106%;padding-left:50px;padding-right:40px;">
+        <form class="form-login">
+            <h6 class="credential-intro">
+                Please enter the Movie details to edit.
+            </h6>
 
- </div>
-<div *ngIf="error"> Please enter all the data and do select the genres</div>
+            <div class="form-group">
+                <span class="input-icon">
+                    <label style="font-size:16px">Name</label>
+                    <input  [(ngModel)]="movie.name" name="moviename" type="text" class="form-control text-ht" autofocus>
+                </span>
+            </div>
+            <div class="form-group">
+                <span class="input-icon">
+                    <label style="font-size:16px">99Popularity</label>
+                    <input  [(ngModel)]="movie.popularity" type="text" name="popularity" class="form-control text-ht">
+                </span>
+            </div>
+            <div class="form-group">
+                <span class="input-icon">
+                    <label style="font-size:16px">Director</label>
+                    <input  [(ngModel)]="movie.director" type="text" name="director" class="form-control text-ht">
+                </span>
+            </div>
+            <div class="form-group">
+                <span class="input-icon">
+                    <label style="font-size:16px">Imdb Rating</label>
+                    <input  [(ngModel)]="movie.imdbScore" type="text" name="imdb" class="form-control text-ht">
+                </span>
+            </div>
+            <div class="form-group">
+                <span class="input-icon">
+                    <label style="font-size:16px">Genres</label>
+                    <div *ngIf="genres">
+                        <select class="form-control" multiple [(ngModel)]="movie.genres" name="genre">
+                            <option *ngFor="let genre of genres" [ngValue]="genre" [selected]="prePopulateGenre(genre)">{{ genre.name }}</option>
+                        </select>
+                    </div>
+                </span>
+            </div>
+            <div class="form-actions" style="height:80px;">
+                <button  (click)="editMovie(movie)" class="btn btn-primary login_property">Submit</button>
+            </div>
+        </form>
+    </div>
+    <!-- end: LOGIN BOX -->
+</div>
