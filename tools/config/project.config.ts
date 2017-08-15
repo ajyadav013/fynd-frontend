@@ -16,7 +16,8 @@ export class ProjectConfig extends SeedConfig {
         super();
         this.FONTS_SRC = [
             'node_modules/bootstrap/dist/fonts/**',
-            'node_modules/font-awesome/fonts/**'
+            'node_modules/font-awesome/fonts/**',
+            'node_modules/cd-themify-icons/fonts/**'
         ];
         this.APP_TITLE = 'Fynd Task';
         // this.GOOGLE_ANALYTICS_ID = 'Your site's ID';
