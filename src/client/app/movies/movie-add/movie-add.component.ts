@@ -13,7 +13,6 @@ import { MoviesService } from '../movies.service';
 export class MovieAddComponent implements OnInit {
 
     public movie:IMovies = new IMovies();
-    public selectedGenres:Array<string> = [];
     public genres:IGenres = new IGenres();
     public showTemplate:boolean = false;
     constructor(private _moviesService:MoviesService, private _route: ActivatedRoute, private _router:Router) {}
@@ -34,12 +33,7 @@ export class MovieAddComponent implements OnInit {
     }
 
 
-    addMovie(movie:IMovies, genres:any) {
-
-        movie.genres = [];
-        for (let i=0; i<genres.length; i++) {
-            movie.genres.push(genres[i]);
-        }
+    addMovie(movie:IMovies) {
         this._moviesService.addMovie(movie)
             .subscribe(
                 response => this.addMovieResponse(response),
