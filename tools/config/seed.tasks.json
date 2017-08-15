@@ -86,6 +86,7 @@
         "initialize",
         "clean.once",
         "build.assets.dev",
+        "build.fonts",
         "build.html_css",
         "build.js.dev",
         "build.js.test",
