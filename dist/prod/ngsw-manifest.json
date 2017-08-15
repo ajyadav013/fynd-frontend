@@ -1,0 +1,27 @@
+{
+  "static": {
+    "urls": {
+      "/index.html": "ff32f07edeb570139758fbb7d5281b6f934ac725",
+      "/worker-basic.min.js": "2f12848c352bd6baf25f0f1d995351696ef518ff",
+      "/assets/data.json": "4442de734b100da8d244b35d34a355dee4dd9618",
+      "/css/main.css": "35361e1751a5f58489fb623e5fe047995694720f",
+      "/js/app.js": "924399cb7400f5c49e62c28e1add69047504bb60",
+      "/js/shims.js": "c0976a89af161deffff0fbe7b40d016e4d3bb54b",
+      "/assets/favicon/favicon-DEV.ico": "aa4fb0706ed367fb5c2fd6bd2b058c0dce8cc785",
+      "/assets/favicon/favicon-PROD.ico": "5d40a29d26398292f08a46b26f6788ec60f5f43e",
+      "/assets/svg/more.svg": "9838cd822e0f989a0befbd365365ee2751bbdebc"
+    }
+  },
+  "routing": {
+    "index": "/index.html",
+    "routes": {
+      "/": {
+        "prefix": false
+      }
+    }
+  },
+  "push": {
+    "showNotifications": true,
+    "backgroundOnly": false
+  }
+}
