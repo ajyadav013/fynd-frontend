@@ -19,6 +19,7 @@ export class ProjectConfig extends SeedConfig {
         this.FONTS_SRC = [
             'node_modules/bootstrap/dist/fonts/**',
             'node_modules/font-awesome/fonts/**',
+            'node_modules/cd-themify-icons/fonts/**',
         ];
         this.CSS_FONTS_SRC = [
             'node_modules/cd-themify-icons/fonts/**'
